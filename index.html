@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SPARSHA RIMAL</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript> -->
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-diamond"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Sparsha Rimal</h1>
+								<p>Hello, Welcome to my Portfolio<br />
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Intro</a></li>
+								<li><a href="#work">Work</a></li>
+								<li><a href="#about">Skills</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Intro</h2>
+								<!-- <span class="image main"><img src="images/pic01.jpg" alt="" /></span> -->
+								<p>Enthusiastic and skilled Python Developer with extensive experience using the Django framework to buildrobust and scalable web applications. Proven track record of completing various projects that showcasestrong problem-solving abilities and expertise in software development. Well-versed in microservicesarchitecture and DevOps practices, ensuring efficient and reliable deployment pipelines. Adept atcollaborating within cross-functional teams to deliver high-quality solutions, with a keen interest incontinuous learning and staying updated with the latest industry trends and technologies.</p>
+								<p></p>
+							</article>
+
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">Work</h2>
+								<!-- <span class="image main"><img src="images/pic02.jpg" alt="" /></span> -->
+								<!-- <p>E-commerce with Blockchain</p> -->
+								<a href="https://pypi.org/project/microservices-django/"><span class="label">Django Microservices Package On PYPI</span></a> <br>
+								<a href="https://dyneum.io/"><span class="label">E-commerce with Blockchain</span></a> <br>
+								<a href="https://django-ecommerce-egm9.onrender.com/"><span class="label">Ecommerce</span></a> <br>
+								<a href="https://travel-frontend-seven.vercel.app/"><span class="label">Travel and Tourism</span></a> <br>
+								<a href="https://pet-care-frontend-psi.vercel.app/"><span class="label">Pet Clinic and Shop</span></a> <br>
+								<a href="https://restaurant-zu2z.onrender.com/"><span class="label">Resturant</span></a> <br>
+								<a href="https://weather-app-fpdm.onrender.com/"><span class="label">Weather App</span></a> <br>
+							</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">Skills</h2>
+								<!-- <span class="image main"><img src="images/pic03.jpg" alt="" /></span> -->
+								<p>HTML/CSS/Javascript <br>
+									RestAPI <br>
+									Microservices / Multi-tenant <br>
+									Blockchain <br>
+									AI <br>
+									Python / Django <br>
+									MySQL / PostgreSQL / MongoDB <br>
+									Kubernetes / Docker /Jenkins / GitHub-actions <br>
+									AWS / Pinata-cloud <br>
+									Postman / GitHub</p>
+							</article>
+
+						<!-- Contact -->
+						<article id="contact">
+							<h2 class="major">Contact</h2>
+							<form id="contactForm" method="post">
+								<div class="fields">
+									<div class="field half">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" required />
+									</div>
+									<div class="field half">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" required />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4" required></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" class="primary" /></li>
+									<li><input type="reset" value="Reset" /></li>
+								</ul>
+							</form>
+						
+							<div id="successMessage" style="display:none;">
+								<p>Thank you! Your message has been successfully sent.</p>
+							</div>
+						</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright"><script>document.write(new Date().getFullYear())</script> &copy; sparsharimal </p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+
+
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+
+        fetch('https://sparsha.onrender.com/contact/send-message/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'X-CSRFToken': '{{ csrf_token }}'  // Use this if both front and backend are on the same domain.
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('contactForm').reset();  // Reset form after successful submission
+                
+                // Hide success message after 5 seconds (5000 milliseconds)
+                setTimeout(function() {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            } else {
+                alert('There was a problem submitting your message.');
+            }
+        })
+        .catch(error => console.log('Form submission error:', error));
+    });
+</script>
